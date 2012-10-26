@@ -2,14 +2,6 @@ rvirt
 =====
 This is a JRuby script for using oVirt and RHEV-M REST API. Right now, this script does very little. It is primarily a proof of concept to demonsrate accessing the Virualization Manager's API using a languae other than Python or pure Java.
 
-Version
--------
-20121026
-
-Why JRuby?
-----------
-As of version 20121026, this program does not use any specific JRuby features, so in theory, and RVM should be able to execute this script. Th future of this tool does plan to leverage some JRuby specific features such as Swing.
-
 
 GEM Dependencies
 ----------------
@@ -37,3 +29,31 @@ Command Line Usage
      -v, --version                    Print version and exit.
      -h, --help                       Show this help message.
 
+
+Version
+-------
+20121026 - This program is versioned by the date of the current codebase. There are currently no official releases.
+
+
+License
+-------
+GPLv3
+
+FAQ
+===
+
+Why JRuby?
+----------
+As of version 20121026, this program does not use any specific JRuby features, so in theory, any RVM should be able to execute this script. Th future of this tool does plan to leverage some JRuby specific features such as Swing and FreeMarker.
+
+Why not use Libvirt?
+--------------------
+Libvirt is an abstraction library for more low-level functions; whereas, rvirt is specific to the oVirt-engine/RHEV-M API, which in-turn leverages libvirt on the hypervisor nodes.
+
+What about ovirt-CLI?
+---------------------
+oVirt-CLI is a great tool, and currently more complete than rvirt, but it is written in Python not Ruby. This project aims to create a Ruby based toolkit.
+
+IRC Channel
+-----------
+Join #rhev on FreeNod to discuss the project and get assistance.

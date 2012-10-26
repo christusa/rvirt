@@ -1,0 +1,11 @@
+---
+rhevm:
+  hostname: rhevm.rhev.demo
+  http_port: '80'
+  https_port: '443'
+  use_ssl: false
+  user: admin
+  domain: internal
+  password: redhat
+  cacert: rhevm-ca.cert
+...

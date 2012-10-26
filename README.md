@@ -3,12 +3,20 @@ rvirt
 
 JRuby script for using oVirt and RHEV-M REST API. 
 
+GEM Dependencies
+----------------
+rvirt requires some 3rd-party gems in order to run. 
+
+  jgem install rest-client
+  jgem install xml-simple
+
+
 Command Line Usage
 ------------------
 
- rvirt :: oVirt & RHEV-M API Client
- This program comes with ABSOLUTELY NO WARRANTY
- Usage: 
+  rvirt :: oVirt & RHEV-M API Client
+  This program comes with ABSOLUTELY NO WARRANTY
+  Usage: 
  
      -g, --genconfig                  Build sample configuration.
      -H, --listhosts                  List RHEV Hypervisors.

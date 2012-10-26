@@ -32,8 +32,6 @@ require 'pp'
 Configfile = "/opt/rvirt/rvirt.conf.yaml"
 RVIRT_VERSION = 20121025
 
-class Rvirt
-
 # Builds a default YAML configuration and outputs the filename specified.
 def create_config
   if File.exist?(Configfile) == false
@@ -218,13 +216,6 @@ def change_vm_state(vmname, action)
      end
 end
 
-
-#java_signature "void main(String[])"
-def self.main(args)
-  t = java.lang.Thread.new(Rvirt.new)
-  t.start
-end
-
 # Parse the command line options.
 def getoptions(args)
 	options = {}
@@ -318,4 +309,3 @@ cmdswitch = getoptions(ARGV)
     main
   end
 
-end

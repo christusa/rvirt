@@ -56,4 +56,5 @@ oVirt-CLI is a great tool, and currently more complete than rvirt, but it is wri
 
 IRC Channel
 -----------
-Join #rhev on FreeNode to discuss the project and get assistance.
+Join #rhev on FreeNode to discuss the project and get assistance. 
+  telegardian  (Chris Tusa)

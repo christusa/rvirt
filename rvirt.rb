@@ -93,12 +93,12 @@ end
 def create_uri(target)
    if $cfg['rhevm']['use_ssl'] == true then
      proto = "https"
-     port = "443"
+     port = $cfg['rhevm']['https_port']
    else
      proto = "http"
-     port = "80"
+     port = $cfg['rhevm']['http_port']
    end
-   return "#{proto}://#{$cfg['rhevm']['user']}%40#{$cfg['rhevm']['domain']}:#{$cfg['rhevm']['password']}@#{$cfg['rhevm']['hostname']}:#{$cfg['rhevm']['port']}/api/#{target}"
+   return "#{proto}://#{$cfg['rhevm']['user']}%40#{$cfg['rhevm']['domain']}:#{$cfg['rhevm']['password']}@#{$cfg['rhevm']['hostname']}:#{port}/api/#{target}"
 
 end
 
@@ -123,11 +123,13 @@ def list_vms
   puts "Name                State    Description"
   puts "------------------- -------- -------------------------"
   vms['vm'].each do |v|
-    ws = ' ' * (20 - v['name'][0].length )
+    ws = ' ' * (20 - v['name'][0].length).abs
     print v['name'][0] + ws
     ws = ' ' * (9 - v['status'][0]['state'][0].length )
     print v['status'][0]['state'][0] + ws
-    print v['description'][0] + ' '
+    unless v['description'].nil? then 
+      print v['description'][0]
+    end
     puts
   end
 
@@ -197,7 +199,11 @@ def change_vm_state(vmname, action)
      case action
        when 'start'
          unless is_vm_up?(vmname)
-  	   RestClient.post(create_uri("vms/#{vmid}/start"), payload, header)
+           begin
+  	     RestClient.post(create_uri("vms/#{vmid}/start"), payload, header)
+           rescue RestClient::BadRequest => rce
+	     pp rce
+           end
 	 else 
 	   puts "VM is already running."
          end

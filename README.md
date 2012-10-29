@@ -1,7 +1,6 @@
 rvirt
 =====
-This is a JRuby script for using oVirt and RHEV-M REST API. Right now, this script does very little. It is primarily a proof of concept to demonsrate accessing the Virualization Manager's API using a languae other than Python or pure Java.
-
+This is a JRuby script for using oVirt and RHEV-M REST API. 
 
 GEM Dependencies
 ----------------
